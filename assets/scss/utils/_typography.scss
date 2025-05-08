@@ -1,0 +1,24 @@
+
+// font url
+$font-url: 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syncopate:wght@400;700&display=swap';
+
+// font family
+$font-family: (
+    'ff': (
+        'body':"'DM Sans', sans-serif",
+        'heading': "'Syncopate', sans-serif",
+        'common': "'Syncopate', sans-serif",
+        'p': "'DM Sans', sans-serif",
+        'fontawesome': '"Font Awesome 6 Pro"',
+    )
+);
+
+// font size
+$font-size: (
+    'fz': (
+        'body': 18px,
+        'p': 18px,
+    )
+);
+
+
