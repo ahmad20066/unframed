@@ -152,7 +152,7 @@ li,
   */
   --tp-common-white: #ffffff;
   --tp-common-black: #0e2143;
-  --tp-common-bg: #fff0e0;
+  --tp-common-bg: #c4c4c4;
   --tp-common-bg2: #FED497;
   --tp-grey-1: #525252;
   --tp-grey-2: #bcbcbc;
@@ -1296,7 +1296,7 @@ div.demo img {
 /*  2.12 Modal
 /*----------------------------------------*/
 #loading {
-  background-color: #fff0e0;
+  background-color: #c4c4c4;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1319,7 +1319,7 @@ div.demo img {
 }
 
 #loading {
-  background-color: #fff0e0;
+  background-color: #c4c4c4;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1587,7 +1587,7 @@ div.demo img {
 }
 
 .section-orange {
-  background-color: #fff0e0;
+  background-color: #c4c4c4;
 }
 
 .section-orange-2 {
@@ -6880,7 +6880,7 @@ div.tp-blog-thumb img {
   }
 }
 .tp-video-play-4 {
-  background: #fff0e0;
+  background: #c4c4c4;
   padding: 190px 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
@@ -10586,7 +10586,7 @@ div.tp-blog-thumb img {
   background-color: var(--tp-theme-primary);
 }
 .tp-process-wrap-2 .tp-process-icon span {
-  background: #fff0e0;
+  background: #c4c4c4;
 }
 .tp-process-wrap-2 .tp-process-title {
   color: var(--tp-common-black);
