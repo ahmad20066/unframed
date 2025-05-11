@@ -90,7 +90,7 @@ if ($("body").not(".is-mobile").hasClass("tp-magic-cursor")) {
             $ball.append('<div class="ball-view"></div>');
             $(".ball-view").append($(this).attr("data-cursor"));
             gsap.to($ball, { duration: 0.3, xPercent: is_rtl()? 50 : -50,yPercent: -60, width: 110, height: 110, opacity: 1, borderWidth: 0, zIndex:1, backdropFilter: "blur(14px)",
-            backgroundColor: "#FF824D", boxShadow: "0px 1px 3px 0px rgba(18, 20, 32, 0.14)"});
+            backgroundColor: "#3a93be", boxShadow: "0px 1px 3px 0px rgba(18, 20, 32, 0.14)"});
             gsap.to(".ball-view", { duration: 0.3, scale: 1, autoAlpha: 1 });
         }).on("mouseleave", function() {
             gsap.to(ball, { duration: 0.3, yPercent: -50, width: $ballWidth, height: $ballHeight, opacity: $ballOpacity, borderWidth: $ballBorderWidth, backgroundColor: "#1c1d21" });

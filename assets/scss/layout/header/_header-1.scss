@@ -119,13 +119,13 @@
     margin-left: 10px;
     transform: translateY(3px);
       & span{
-        color: #1c1d21;
+        color: #0e2143;
       }
   }
   &-action{
     position: relative;
     & button{
-      color: #1C1D21;
+      color: #0e2143;
       &:hover{
         color: var(--tp-theme-primary);
       }

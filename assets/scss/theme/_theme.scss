@@ -138,6 +138,7 @@ body {
 a{
 	text-decoration: none;
 }
+$navyBlue : #0e2244;
 
 h1,
 h2,
@@ -146,7 +147,7 @@ h4,
 h5,
 h6 {
 	font-family: var(--tp-ff-heading);
-	color: $black;
+	color: $navyBlue;
 	margin-top: 0px;
 	font-weight: 700;
 	line-height: 1.2;
@@ -154,10 +155,12 @@ h6 {
 
 h1 {
 	font-size: 80px;
+	color: #1d38a7;
 }
   
 h2 {
 font-size: 60px;
+color: #1d38a7;
 }
 
 h3 {

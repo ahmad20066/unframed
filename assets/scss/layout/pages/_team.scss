@@ -12,10 +12,10 @@
       font-size: 17px;
     }
     & a{
-      @include bgborder(#FF824D, 0,0);
+      @include bgborder(#3a93be, 0,0);
       @include transition(all .3s ease);
       &:hover{
-          @include bgborder(#FF824D, 0,100%);
+          @include bgborder(#3a93be, 0,100%);
           color: var(--tp-theme-primary);
           @include transition(all .3s ease);
       }
