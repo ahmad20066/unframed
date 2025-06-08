@@ -6994,7 +6994,7 @@ div.tp-blog-thumb img {
   font-size: 120px;
   line-height: 1;
   text-transform: uppercase;
-  color: #edd8c1;
+  color: #3a93be;
   bottom: -49px;
   left: -37px;
   margin-bottom: 0;
@@ -10375,8 +10375,15 @@ div.tp-blog-thumb img {
   font-size: 120px;
   line-height: 1;
   text-transform: uppercase;
-  color: #2b2c2f;
+  color: #3a93be;
 }
+.tp-brand-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* margin-top: -48px; */
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
   .tp-project-slider-text .tp-hero-text-slider-single h2 {
     font-size: 80px;
