@@ -33,12 +33,13 @@
 31. Show Coupon Toggle Js
 32. Password Toggle Js
 33. Password Toggle Js
+34. Smooth Scrolling for Navigation Links
  ****************************************************/
 
 (function ($) {
 	"use strict";
 	var windowOn = $(window)
-	
+
 	////////////////////////////////////////////////////
 	// 01. data-background
 	$("[data-background").each(function () {
@@ -47,13 +48,13 @@
 
 	////////////////////////////////////////////////////
 	// 02. smooth-wrapper
-	if($('#smooth-wrapper').length && $('#smooth-content').length){
+	if ($('#smooth-wrapper').length && $('#smooth-content').length) {
 		gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TweenMax, ScrollToPlugin);
-	
+
 		gsap.config({
 			nullTargetWarn: false,
 		});
-	
+
 		let smoother = ScrollSmoother.create({
 			smooth: 2,
 			effects: true,
@@ -108,33 +109,33 @@
 	var btn = $('#back_to_top');
 	var btn_wrapper = $('.back-to-top-wrapper');
 
-	windowOn.scroll(function() {
-	if (windowOn.scrollTop() > 300) {
-		btn_wrapper.addClass('back-to-top-btn-show');
-	} else {
-		btn_wrapper.removeClass('back-to-top-btn-show');
-	}
+	windowOn.scroll(function () {
+		if (windowOn.scrollTop() > 300) {
+			btn_wrapper.addClass('back-to-top-btn-show');
+		} else {
+			btn_wrapper.removeClass('back-to-top-btn-show');
+		}
 	});
 
-	btn.on('click', function(e) {
+	btn.on('click', function (e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop:0}, '300');
+		$('html, body').animate({ scrollTop: 0 }, '300');
 	});
 
 	if ($('.tp-header-height').length > 0) {
-		var headerHeight = document.querySelector(".tp-header-height");      
-		var setHeaderHeight = headerHeight.offsetHeight;	
+		var headerHeight = document.querySelector(".tp-header-height");
+		var setHeaderHeight = headerHeight.offsetHeight;
 		$(".tp-header-height").each(function () {
 			$(this).css({
-				'height' : $(this).height()
+				'height': $(this).height()
 			});
 		});
 	}
-	
+
 
 	////////////////////////////////////////////////////
 	// 07. mobile-menu-active
-	if($('.tp-main-menu-content').length && $('.tp-main-menu-mobile').length){
+	if ($('.tp-main-menu-content').length && $('.tp-main-menu-mobile').length) {
 		let navContent = document.querySelector(".tp-main-menu-content").outerHTML;
 		let mobileNavContainer = document.querySelector(".tp-main-menu-mobile");
 		mobileNavContainer.innerHTML = navContent;
@@ -149,16 +150,16 @@
 			arrowBtn.innerHTML = "<i class='fal fa-angle-right'></i>";
 
 			self.append(function () {
-			return arrowBtn;
+				return arrowBtn;
 			});
 
 			self.find("button").on("click", function (e) {
-			e.preventDefault();
-			let self = $(this);
-			self.toggleClass("dropdown-opened");
-			self.parent().toggleClass("expanded");
-			self.parent().parent().addClass("dropdown-opened").siblings().removeClass("dropdown-opened");
-			self.parent().parent().children(".tp-submenu, .tp-megamenu-active").slideToggle();
+				e.preventDefault();
+				let self = $(this);
+				self.toggleClass("dropdown-opened");
+				self.parent().toggleClass("expanded");
+				self.parent().parent().addClass("dropdown-opened").siblings().removeClass("dropdown-opened");
+				self.parent().parent().children(".tp-submenu, .tp-megamenu-active").slideToggle();
 			});
 
 		});
@@ -277,9 +278,9 @@
 				invalidateOnRefresh: true
 			}
 		})
-		.to('.scrool-left-right.marque ', {
-			x: '-100%'
-		});
+			.to('.scrool-left-right.marque ', {
+				x: '-100%'
+			});
 	}
 
 	////////////////////////////////////////////////////
@@ -303,7 +304,7 @@
 	$(".tp-search-close,.body-overlay").on("click", function () {
 		$(".tp-search-form-toggle,.body-overlay").removeClass("active");
 	});
-	
+
 
 	function tp_ecommerce() {
 		$('.tp-cart-minus').on('click', function () {
@@ -340,7 +341,7 @@
 
 	////////////////////////////////////////////////////
 	// 18. tp-video-area
-	
+
 	if ($('.tp-video-area').length > 0) {
 
 		let mm = gsap.matchMedia();
@@ -359,7 +360,7 @@
 			tp_hero_2.to(".tp-video-wrap", {
 				width: "1320px",
 				height: "600px",
-	
+
 			});
 		});
 	}
@@ -397,116 +398,116 @@
 
 	////////////////////////////////////////////////////
 	// 20. button hover animation
-		$('.tp-btn-rounded').on('mouseenter', function (e) {
-			var x = e.pageX - $(this).offset().left;
-			var y = e.pageY - $(this).offset().top;
-	
-			$(this).find('.tp-btn-circle-dot').css({
-				top: y,
-				left: x
-			});
-		});
-	
-		$('.tp-btn-rounded').on('mouseout', function (e) {
-			var x = e.pageX - $(this).offset().left;
-			var y = e.pageY - $(this).offset().top;
-	
-			$(this).find('.tp-btn-circle-dot').css({
-				top: y,
-				left: x
-			});
-		});
+	$('.tp-btn-rounded').on('mouseenter', function (e) {
+		var x = e.pageX - $(this).offset().left;
+		var y = e.pageY - $(this).offset().top;
 
-		////////////////////////////////////////////////////
-		// 21. tp-project-list-wrap
-
-		$('.tp-project-list-wrap .tp-project-list-item').on("mouseenter", function () {
-			$('#tp-project-thumb').removeClass().addClass($(this).attr('rel'));
-			$(this).addClass('active').siblings().removeClass('active');
+		$(this).find('.tp-btn-circle-dot').css({
+			top: y,
+			left: x
 		});
-		
-		////////////////////////////////////////////////////
-		// 22. subscribe-popup
-		if ($('.subscribe-popup').length) {
-			const loginPopup = document.querySelector(".subscribe-popup");
-			const close = document.querySelector(".close");
-			
-			window.addEventListener("load",function(){
-			 showPopup();
-			})
-			function showPopup(){
-					const timeLimit = 5
-					let i=0;
-					const timer = setInterval(function(){
-					 i++;
-					 if(i == timeLimit){
+	});
+
+	$('.tp-btn-rounded').on('mouseout', function (e) {
+		var x = e.pageX - $(this).offset().left;
+		var y = e.pageY - $(this).offset().top;
+
+		$(this).find('.tp-btn-circle-dot').css({
+			top: y,
+			left: x
+		});
+	});
+
+	////////////////////////////////////////////////////
+	// 21. tp-project-list-wrap
+
+	$('.tp-project-list-wrap .tp-project-list-item').on("mouseenter", function () {
+		$('#tp-project-thumb').removeClass().addClass($(this).attr('rel'));
+		$(this).addClass('active').siblings().removeClass('active');
+	});
+
+	////////////////////////////////////////////////////
+	// 22. subscribe-popup
+	if ($('.subscribe-popup').length) {
+		const loginPopup = document.querySelector(".subscribe-popup");
+		const close = document.querySelector(".close");
+
+		window.addEventListener("load", function () {
+			showPopup();
+		})
+		function showPopup() {
+			const timeLimit = 5
+			let i = 0;
+			const timer = setInterval(function () {
+				i++;
+				if (i == timeLimit) {
 					clearInterval(timer);
 					loginPopup.classList.add("show");
-					 } 
-					 console.log(i)
-					},500);
-			}
-			close.addEventListener("click",function(){
-				loginPopup.classList.remove("show");
-			})
+				}
+				console.log(i)
+			}, 500);
 		}
+		close.addEventListener("click", function () {
+			loginPopup.classList.remove("show");
+		})
+	}
 
-		///////////////////////////////////////////////////
-		// 23. Sticky Header Js
-		windowOn.on('scroll', function () {
-			var scroll = windowOn.scrollTop();
-			if (scroll < 20) {
-				$("#header-sticky").removeClass("header-sticky");
-			} else {
-				$("#header-sticky").addClass("header-sticky");
-			}
-		});
+	///////////////////////////////////////////////////
+	// 23. Sticky Header Js
+	windowOn.on('scroll', function () {
+		var scroll = windowOn.scrollTop();
+		if (scroll < 20) {
+			$("#header-sticky").removeClass("header-sticky");
+		} else {
+			$("#header-sticky").addClass("header-sticky");
+		}
+	});
 
-		////////////////////////////////////////////////////
-		// 24. PreLoader Js	
+	////////////////////////////////////////////////////
+	// 24. PreLoader Js	
 
-		$('.preloader__logo img').addClass('logo-blink');
+	$('.preloader__logo img').addClass('logo-blink');
 
-		(function(){
-			function id(v){ return document.getElementById(v); }
-			function loadbar() {
-				var ovrl = id("loading"),
-					prog = id("tp-loading-line"),
-					img = document.images,
-					c = 0,
-					tot = img.length;
-				if(tot == 0) return doneLoading();
-			
-				function imgLoaded(){
+	(function () {
+		function id(v) { return document.getElementById(v); }
+		function loadbar() {
+			var ovrl = id("loading"),
+				prog = id("tp-loading-line"),
+				img = document.images,
+				c = 0,
+				tot = img.length;
+			if (tot == 0) return doneLoading();
+
+			function imgLoaded() {
 				c += 1;
-				var perc = ((100/tot*c) << 0) +"%";
+				var perc = ((100 / tot * c) << 0) + "%";
 				prog.style.width = perc;
 
-				if(c===tot) return doneLoading();
-				}
-				function doneLoading(){
-				
-				setTimeout(function(){ 
+				if (c === tot) return doneLoading();
+			}
+			function doneLoading() {
+
+				setTimeout(function () {
 					$("#loading").fadeOut(500);
 				}, 100);
-				}
-				for(var i=0; i<tot; i++) {
-				var tImg     = new Image();
-				tImg.onload  = imgLoaded;
+			}
+			for (var i = 0; i < tot; i++) {
+				var tImg = new Image();
+				tImg.onload = imgLoaded;
 				tImg.onerror = imgLoaded;
-				tImg.src     = img[i].src;
-				}    
+				tImg.src = img[i].src;
 			}
-			document.addEventListener('DOMContentLoaded', loadbar, false);
-			}());
+		}
+		document.addEventListener('DOMContentLoaded', loadbar, false);
+	}());
 
 
-		///////////////////////////////////////////////////
-		// 25. text-animetion-jsap
-		if ($('.tp-title-anim').length > 0) {
-			let splitTitleLines = gsap.utils.toArray(".tp-title-anim");
-			splitTitleLines.forEach(splitTextLine => {
-				const tl = gsap.timeline({
+	///////////////////////////////////////////////////
+	// 25. text-animetion-jsap
+	if ($('.tp-title-anim').length > 0) {
+		let splitTitleLines = gsap.utils.toArray(".tp-title-anim");
+		splitTitleLines.forEach(splitTextLine => {
+			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: splitTextLine,
 					start: 'top 90%',
@@ -515,21 +516,21 @@
 					markers: false,
 					toggleActions: 'play none none none'
 				}
-				});
-	
-				const itemSplitted = new SplitText(splitTextLine, { type: "words, lines" });
-				gsap.set(splitTextLine, { perspective: 300});
-				itemSplitted.split({ type: "lines" })
-				tl.from(itemSplitted.lines, { duration: 1, delay: 0.3, opacity: 0, rotationX: -50, force3D: true, transformOrigin: "top center -50", stagger: 0.2 });
-			});	
-		}
+			});
 
-		///////////////////////////////////////////////////
-		// 26. tp-char-animation
-		if ($('.tp-char-animation').length > 0) {
-			let char_come = gsap.utils.toArray(".tp-char-animation");
-			char_come.forEach(splitTextLine => {
-				const tl = gsap.timeline({
+			const itemSplitted = new SplitText(splitTextLine, { type: "words, lines" });
+			gsap.set(splitTextLine, { perspective: 300 });
+			itemSplitted.split({ type: "lines" })
+			tl.from(itemSplitted.lines, { duration: 1, delay: 0.3, opacity: 0, rotationX: -50, force3D: true, transformOrigin: "top center -50", stagger: 0.2 });
+		});
+	}
+
+	///////////////////////////////////////////////////
+	// 26. tp-char-animation
+	if ($('.tp-char-animation').length > 0) {
+		let char_come = gsap.utils.toArray(".tp-char-animation");
+		char_come.forEach(splitTextLine => {
+			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: splitTextLine,
 					start: 'top 90%',
@@ -538,129 +539,159 @@
 					markers: false,
 					toggleActions: 'play none none none'
 				}
-				});
-	
-				const itemSplitted = new SplitText(splitTextLine, { type: "chars, words" });
-				gsap.set(splitTextLine, { perspective: 300});
-				itemSplitted.split({ type: "chars, words"})
-				tl.from(itemSplitted.chars, 
-					{
-						duration: 0.5,
-						x: 100,
-						autoAlpha: 0,
-						stagger: 0.05 
-					});
-			});	
-		}
+			});
 
-		///////////////////////////////////////////////////
-		// 27. tp_fade_bottom
-		if ($('.tp_fade_bottom').length > 0) {
-			gsap.set(".tp_fade_bottom", { y: 100, opacity: 0 });
-			const fadeArray = gsap.utils.toArray(".tp_fade_bottom")
-			fadeArray.forEach((item, i) => {
-				let fadeTl = gsap.timeline({
-					scrollTrigger: {
-						trigger: item,
-						start: "top center+=400",
-					}
-				})
-				fadeTl.to(item, {
-					y: 0,
-					opacity: 1,
-					ease: "power2.out",
-					duration: 1.5,
-				})
+			const itemSplitted = new SplitText(splitTextLine, { type: "chars, words" });
+			gsap.set(splitTextLine, { perspective: 300 });
+			itemSplitted.split({ type: "chars, words" })
+			tl.from(itemSplitted.chars,
+				{
+					duration: 0.5,
+					x: 100,
+					autoAlpha: 0,
+					stagger: 0.05
+				});
+		});
+	}
+
+	///////////////////////////////////////////////////
+	// 27. tp_fade_bottom
+	if ($('.tp_fade_bottom').length > 0) {
+		gsap.set(".tp_fade_bottom", { y: 100, opacity: 0 });
+		const fadeArray = gsap.utils.toArray(".tp_fade_bottom")
+		fadeArray.forEach((item, i) => {
+			let fadeTl = gsap.timeline({
+				scrollTrigger: {
+					trigger: item,
+					start: "top center+=400",
+				}
 			})
+			fadeTl.to(item, {
+				y: 0,
+				opacity: 1,
+				ease: "power2.out",
+				duration: 1.5,
+			})
+		})
+	}
+
+	///////////////////////////////////////////////////
+	// 28. tp-zoom-img
+	let zm = gsap.matchMedia();
+	zm.add("(min-width: 1200px)", () => {
+		if ($('.tp-hero-area').length > 0) {
+			// Testimonial 3 Image Animation
+			gsap.set(".tp-zoom-img", { scale: 0, opacity: 0 });
+
+			gsap.to(".tp-zoom-img", {
+				scrollTrigger: {
+					trigger: ".tp-zoom-img",
+					start: "center center",
+					markers: false
+				},
+				duration: 1,
+				ease: "none",
+				scale: 1,
+				opacity: 1,
+			})
+
 		}
+	});
 
-		///////////////////////////////////////////////////
-		// 28. tp-zoom-img
-		let zm = gsap.matchMedia();
-		zm.add("(min-width: 1200px)", () => {
-			if ($('.tp-hero-area').length > 0) {
-				// Testimonial 3 Image Animation
-				gsap.set(".tp-zoom-img", { scale: 0, opacity: 0 });
-	
-				gsap.to(".tp-zoom-img", {
-					scrollTrigger: {
-						trigger: ".tp-zoom-img",
-						start: "center center",
-						markers: false
-					},
-					duration: 1,
-					ease: "none",
-					scale: 1,
-					opacity: 1,
-				})
-	
-			}
-		});
+	///////////////////////////////////////////////////
+	// 29. slider-range
 
-		///////////////////////////////////////////////////
-		// 29. slider-range
+	$("#slider-range").slider({
+		range: true,
+		min: 0,
+		max: 1200,
+		values: [80, 700],
+		slide: function (event, ui) {
+			$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+		}
+	});
+	$("#amount").val("$" + $("#slider-range").slider("values", 0) +
+		" - $" + $("#slider-range").slider("values", 1));
 
-		$("#slider-range").slider({
-			range: true,
-			min: 0,
-			max: 1200,
-			values: [80, 700],
-			slide: function (event, ui) {
-				$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-			}
-		});
-		$("#amount").val("$" + $("#slider-range").slider("values", 0) +
-			" - $" + $("#slider-range").slider("values", 1));
+	////////////////////////////////////////////////////
+	// 30. Show Login Toggle Js
+	$('.tp-checkout-login-form-reveal-btn').on('click', function () {
+		$('#tpReturnCustomerLoginForm').slideToggle(400);
+	});
 
-		////////////////////////////////////////////////////
-		// 30. Show Login Toggle Js
-		$('.tp-checkout-login-form-reveal-btn').on('click', function () {
-			$('#tpReturnCustomerLoginForm').slideToggle(400);
-		});
-
-		////////////////////////////////////////////////////
-		// 31. Show Coupon Toggle Js
-		$('.tp-checkout-coupon-form-reveal-btn').on('click', function () {
-			$('#tpCheckoutCouponForm').slideToggle(400);
-		});
+	////////////////////////////////////////////////////
+	// 31. Show Coupon Toggle Js
+	$('.tp-checkout-coupon-form-reveal-btn').on('click', function () {
+		$('#tpCheckoutCouponForm').slideToggle(400);
+	});
 
 
 	////////////////////////////////////////////////////
 	// 32. Password Toggle Js
-		if ($('#password-show-toggle').length > 0) {
-			var btn = document.getElementById('password-show-toggle');
+	if ($('#password-show-toggle').length > 0) {
+		var btn = document.getElementById('password-show-toggle');
 
-			btn.addEventListener('click', function (e) {
+		btn.addEventListener('click', function (e) {
 
-				var inputType = document.getElementById('tp_password');
-				var openEye = document.getElementById('open-eye');
-				var closeEye = document.getElementById('close-eye');
+			var inputType = document.getElementById('tp_password');
+			var openEye = document.getElementById('open-eye');
+			var closeEye = document.getElementById('close-eye');
 
-				if (inputType.type === "password") {
-					inputType.type = "text";
-					openEye.style.display = 'block';
-					closeEye.style.display = 'none';
-				} else {
-					inputType.type = "password";
-					openEye.style.display = 'none';
-					closeEye.style.display = 'block';
-				}
-			});
-		}
+			if (inputType.type === "password") {
+				inputType.type = "text";
+				openEye.style.display = 'block';
+				closeEye.style.display = 'none';
+			} else {
+				inputType.type = "password";
+				openEye.style.display = 'none';
+				closeEye.style.display = 'block';
+			}
+		});
+	}
 
 	////////////////////////////////////////////////////
-	// 33. Password Toggle Js
+	// 33. ScrollNav for onepage menu
 	function scrollNav() {
-		$('.tp-onepage-menu li a').click(function(){
-		  $(".tp-onepage-menu li a.active").removeClass("active");     
-		  $(this).addClass("active");
-		  
-		  $('html, body').stop().animate({
-			scrollTop: $($(this).attr('href')).offset().top - 96
-		  }, 300);
-		  return false;
+		$('.tp-onepage-menu li a').click(function () {
+			$(".tp-onepage-menu li a.active").removeClass("active");
+			$(this).addClass("active");
+
+			$('html, body').stop().animate({
+				scrollTop: $($(this).attr('href')).offset().top - 150
+			}, 300);
+			return false;
 		});
-	  }
+	}
 	scrollNav();
+
+	////////////////////////////////////////////////////
+	// 34. Smooth Scrolling for Navigation Links
+	function smoothScroll() {
+		// Handle navigation anchor links
+		$('a[href^="#"]').on('click', function (e) {
+			var target = $(this).attr('href');
+
+			// Check if target exists and has content
+			if (target && target !== '#' && $(target).length) {
+				e.preventDefault();
+
+				// If ScrollSmoother is active, use it for smooth scrolling
+				if (window.ScrollSmoother && window.ScrollSmoother.get()) {
+					let smoother = window.ScrollSmoother.get();
+					smoother.scrollTo(target, true, "top 0px");
+				} else {
+					// Fallback to jQuery animation
+					$('html, body').animate({
+						scrollTop: $(target).offset().top
+					}, 800, 'easeInOutQuart');
+				}
+			}
+		});
+	}
+
+	// Initialize smooth scrolling when document is ready
+	$(document).ready(function () {
+		smoothScroll();
+	});
 
 })(jQuery);
