@@ -163,6 +163,15 @@
 			});
 
 		});
+
+		// Close mobile sidebar when menu links are clicked
+		$(".tp-main-menu-mobile a").on("click", function (e) {
+			// Don't close if it's a dropdown toggle button or has dropdown
+			if (!$(this).hasClass('has-dropdown') && !$(this).find('.dropdown-toggle-btn').length) {
+				$(".tpoffcanvas").removeClass("opened");
+				$(".body-overlay").removeClass("apply");
+			}
+		});
 	}
 
 	////////////////////////////////////////////////////
@@ -178,6 +187,15 @@
 	$(".body-overlay").on("click", function () {
 		$(".tpoffcanvas").removeClass("opened");
 		$(".body-overlay").removeClass("apply");
+	});
+
+	// Close sidebar when clicking any link inside the offcanvas (except dropdown toggles)
+	$(".tpoffcanvas a").on("click", function (e) {
+		// Don't close if it's a popup link, dropdown toggle, or social media link
+		if (!$(this).hasClass('popup-image') && !$(this).hasClass('dropdown-toggle-btn') && !$(this).closest('.tpoffcanvas__social').length) {
+			$(".tpoffcanvas").removeClass("opened");
+			$(".body-overlay").removeClass("apply");
+		}
 	});
 
 	////////////////////////////////////////////////////
